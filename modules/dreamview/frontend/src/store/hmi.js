@@ -183,7 +183,8 @@ export default class HMI {
         this.moduleStatus.clear();
       }
       for (const key in newStatus.modules) {
-        this.moduleStatus.set(key, newStatus.modules[key]);
+        this.moduleStatus.set(key, false);
+        // newStatus.modules[key]);
       }
     }
 

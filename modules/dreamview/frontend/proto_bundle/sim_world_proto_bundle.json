@@ -1411,6 +1411,26 @@
                 }
               }
             },
+            "velometer": {
+              "fields": {
+                "behavior": {
+                  "type": "string",
+                  "id": 1
+                },
+                "outCount": {
+                  "type": "int32",
+                  "id": 2
+                },
+                "overspeedCount": {
+                  "type": "int32",
+                  "id": 3
+                },
+                "isOverspeed": {
+                  "type": "int32",
+                  "id": 4
+                }
+              }
+            },
             "Transform": {
               "fields": {
                 "sourceFrame": {

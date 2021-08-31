@@ -12,7 +12,7 @@ export default class Others extends React.Component {
     const disablePanel = enableHMIButtonsOnly || options.lockTaskPanel;
     const hasPncMonitor = !hmi.inTeleopMode && !options.showCameraView;
     const hasManualCompetition = hmi.isManualCompetitionMode;
-    const disableManualCompetition = !hmi.moduleStatus.get('Localization');
+    const disableManualCompetition = false;//!hmi.moduleStatus.get('Localization'); // 本地验证todo
 
     return (
             <div className="others card">
