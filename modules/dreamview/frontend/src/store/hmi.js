@@ -65,6 +65,8 @@ export default class HMI {
 
   @observable isSensorCalibrationMode = false;
 
+  @observable isManualCompetitionMode = false;
+
   @observable dataCollectionUpdateStatus = observable.map();
 
   @observable dataCollectionProgress = observable.map();
@@ -93,6 +95,26 @@ export default class HMI {
 
   @observable counter = 0;
 
+  @observable teamNumber = '';
+
+  @observable behavior = '';
+
+  @observable isOverspeed = 0;
+
+  @observable outCount = 0;
+
+  @observable overspeedCount = 0;
+
+  @observable velometerSpeed = 0;
+
+  @action setTeamNumber(val) {
+    this.teamNumber = val;
+  }
+
+  @action clearTeamNumber() {
+    this.teamNumber = '';
+  }
+
   @action toggleCoDriverFlag() {
     this.isCoDriver = !this.isCoDriver;
   }
@@ -120,8 +142,12 @@ export default class HMI {
       this.isSensorCalibrationMode = newStatus.currentMode
         .toLowerCase()
         .includes('sensor calibration');
+      this.isManualCompetitionMode = newStatus.currentMode
+        .toLowerCase()
+        .includes('manual competition');
       if (this.currentMode !== newStatus.currentMode) {
         this.resetDataCollectionProgress();
+        this.clearTeamNumber(); // clear it when change mode
         this.resetSensorCalibrationConfiguration();
         this.resetPreprocessProgress();
         this.currentMode = newStatus.currentMode;
@@ -308,6 +334,10 @@ export default class HMI {
     return this.isVehicleCalibrationMode && this.moduleStatus.get('Recorder');
   }
 
+  @computed get shouldRequestVelometerInfo() {
+    return this.isManualCompetitionMode && this.moduleStatus.get('Start Competition');
+  }
+
   @action resetDataCollectionProgress() {
     this.dataCollectionUpdateStatus.clear();
     this.dataCollectionProgress.clear();
@@ -393,6 +423,14 @@ export default class HMI {
 
   @action changeIntrinsic(name, index, val) {
     _.set(this.camera, `${name}[${index}]`, val);
+  }
+
+  @action updateVelometerInfo(info) {
+    this.behavior = info.behavior;
+    this.isOverspeed = info.is_overspeed;
+    this.overspeedCount = info.overspeed_count;
+    this.outCount = info.out_count;
+    this.velometerSpeed = info.speed ? info.speed.toFixed(3) : 0;
   }
 
   rotate2DPoint({ x, y }, rotationInRad) {
