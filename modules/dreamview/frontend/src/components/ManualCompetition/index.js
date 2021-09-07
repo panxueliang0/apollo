@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { inject, observer } from 'mobx-react';
 
+const themeColor = ['black-theme', 'red-theme', 'orange-theme'];
 @inject('store') @observer
 export default class ManualCompetition extends Component {
   constructor(props) {
@@ -9,7 +10,6 @@ export default class ManualCompetition extends Component {
       teamNumber: '',
       confirmNumber: false,
     };
-    // 要求整个竞赛过程中一直打开 不然清空
 
     this.renderManualCompetition = this.renderManualCompetition.bind(this);
     this.handleInput = (event) => {
@@ -19,30 +19,37 @@ export default class ManualCompetition extends Component {
   }
 
   determinTeamNumber() {
-    //Todo: check team number is valid
     this.props.store.hmi.setTeamNumber(this.state.teamNumber);
     this.setState({ confirmNumber: true });
   }
 
   renderManualCompetition() {
-    const teamNumber = this.props.store.hmi.teamNumber;
+    const {
+      velometerSpeed, behavior, isOverspeed, overspeedCount, outCount,
+    } = this.props.store.hmi;
+    const speedColor = `speed-section ${themeColor[isOverspeed]}`;
     return (
       <div className="monitor-content">
-        <div className="speed-section"></div>
-        <div className="monitor-row section">
-          <label className="one">当前车辆所在位置</label>
-          <span className="two">position</span>
+        <div className={speedColor}>
+          {velometerSpeed}
+          <span className="speed-unit">m/s</span>
         </div>
         <div className="monitor-row section">
-          <label className="one">超出赛道次数</label>
-          <span className="two">position</span>
+          <label className="one"><span className="label-txt">当前车辆所在位置</span></label>
+          <span className="two">{behavior}</span>
+        </div>
+        <div className="monitor-row section">
+          <label className="one"><span className="label-txt">超出赛道次数</span></label>
+          <span className="two">{outCount}</span>
         </div>
         <div className="monitor-row foul-section">
-          <label className="one">犯规次数（低于或高于限速范围都算犯规）</label>
-          <span className="two">position</span>
+          <label className="one">
+            <span className="label-txt">犯规次数<br />(低于或高于限速<br />范围都算犯规)</span>
+          </label>
+          <span className="two">{overspeedCount}</span>
         </div>
         <div className="monitor-row number-section">
-          <label className="number-label">请输入参赛队伍编号</label>
+          <label className="number-label"><span className="label-txt">请输入参赛队伍编号</span></label>
           <input
             className="number-input"
             disabled={this.state.confirmNumber}

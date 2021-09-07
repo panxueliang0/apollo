@@ -97,6 +97,16 @@ export default class HMI {
 
   @observable teamNumber = '';
 
+  @observable behavior = '';
+
+  @observable isOverspeed = 0;
+
+  @observable outCount = 0;
+
+  @observable overspeedCount = 0;
+
+  @observable velometerSpeed = 0;
+
   @action setTeamNumber(val) {
     this.teamNumber = val;
   }
@@ -183,8 +193,7 @@ export default class HMI {
         this.moduleStatus.clear();
       }
       for (const key in newStatus.modules) {
-        this.moduleStatus.set(key, false);
-        // newStatus.modules[key]);
+        this.moduleStatus.set(key, newStatus.modules[key]);
       }
     }
 
@@ -325,6 +334,10 @@ export default class HMI {
     return this.isVehicleCalibrationMode && this.moduleStatus.get('Recorder');
   }
 
+  @computed get shouldRequestVelometerInfo() {
+    return this.isManualCompetitionMode && this.moduleStatus.get('Start Competition');
+  }
+
   @action resetDataCollectionProgress() {
     this.dataCollectionUpdateStatus.clear();
     this.dataCollectionProgress.clear();
@@ -410,6 +423,14 @@ export default class HMI {
 
   @action changeIntrinsic(name, index, val) {
     _.set(this.camera, `${name}[${index}]`, val);
+  }
+
+  @action updateVelometerInfo(info) {
+    this.behavior = info.behavior;
+    this.isOverspeed = info.is_overspeed;
+    this.overspeedCount = info.overspeed_count;
+    this.outCount = info.out_count;
+    this.velometerSpeed = info.speed ? info.speed.toFixed(3) : 0;
   }
 
   rotate2DPoint({ x, y }, rotationInRad) {

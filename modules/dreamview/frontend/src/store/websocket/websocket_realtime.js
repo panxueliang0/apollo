@@ -133,6 +133,10 @@ export default class RealtimeWebSocketEndpoint {
             STORE.routeEditingManager.updateParkingRoutingDistance(message.threshold);
           }
           break;
+        case 'VelometerInfo':
+          if (message) {
+            STORE.hmi.updateVelometerInfo(message);
+          }
       }
     };
     this.websocket.onclose = (event) => {
@@ -182,6 +186,9 @@ export default class RealtimeWebSocketEndpoint {
         }
         if (STORE.hmi.isSensorCalibrationMode) {
           this.requestPreprocessProgress();
+        }
+        if (STORE.hmi.shouldRequestVelometerInfo) {
+          this.requestVelometerInfo();
         }
       }
     }, this.simWorldUpdatePeriodMs);
@@ -418,6 +425,12 @@ export default class RealtimeWebSocketEndpoint {
   requestPreprocessProgress() {
     this.websocket.send(JSON.stringify({
       type: 'RequestPreprocessProgress',
+    }));
+  }
+
+  requestVelometerInfo() {
+    this.websocket.send(JSON.stringify({
+      type: 'RequestVelometerInfo',
     }));
   }
 
