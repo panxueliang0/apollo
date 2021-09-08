@@ -27,26 +27,27 @@ export default class ManualCompetition extends Component {
     const {
       velometerSpeed, behavior, isOverspeed, overspeedCount, outCount,
     } = this.props.store.hmi;
-    const speedColor = `speed-section ${themeColor[isOverspeed]}`;
+    const showInfo = this.state.teamNumber && this.state.teamNumber;
+    const speedColor = `speed-section ${_.get(themeColor,isOverspeed,0)}`;
     return (
       <div className="monitor-content">
         <div className={speedColor}>
-          {velometerSpeed}
-          <span className="speed-unit">m/s</span>
+          {showInfo ? velometerSpeed : ''}
+          {showInfo && (<span className="speed-unit">m/s</span>)}
         </div>
         <div className="monitor-row section">
           <label className="one"><span className="label-txt">当前车辆所在位置</span></label>
-          <span className="two">{behavior}</span>
+          <span className="two">{showInfo ? behavior : ''}</span>
         </div>
         <div className="monitor-row section">
           <label className="one"><span className="label-txt">超出赛道次数</span></label>
-          <span className="two">{outCount}</span>
+          <span className="two">{showInfo ? outCount : ''}</span>
         </div>
         <div className="monitor-row foul-section">
           <label className="one">
             <span className="label-txt">犯规次数<br />(低于或高于限速<br />范围都算犯规)</span>
           </label>
-          <span className="two">{overspeedCount}</span>
+          <span className="two">{showInfo ? overspeedCount : ''}</span>
         </div>
         <div className="monitor-row number-section">
           <label className="number-label"><span className="label-txt">请输入参赛队伍编号</span></label>

@@ -357,7 +357,7 @@ $monitor-header-height: 32px;
             background-color:#FFFFFF;
             border: #000000 1px solid;
             margin:5px 5px 40px 5px;
-            font-size: 80px;
+            font-size: 100px;
             display: inline-block;
             text-align: center;
             padding: 50px 0;
@@ -373,11 +373,9 @@ $monitor-header-height: 32px;
         }
         .red-theme{
             color:#ff0000;
-            font-size: 100px;
         }
         .orange-theme{
             color: #ffa500;
-            font-size: 100px;
         }
         .section{
             flex:1.5;
@@ -401,11 +399,12 @@ $monitor-header-height: 32px;
             justify-content: space-between;
             padding: 5px 10px;
             .number-label{
-                flex:6;
-                -webkit-flex:6;
+                flex:4;
+                -webkit-flex:4;
                 margin-right: 4px;
                 display: inline-block;
-                padding: 10px;
+                padding: 10px 0;
+                text-align: center;
                 font-size: 15px;
                 background-color: #FFFFFF;
                 border: #000000 1px solid;
