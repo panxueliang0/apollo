@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { inject, observer } from 'mobx-react';
 
-const themeColor = ['black-theme', 'red-theme', 'orange-theme'];
+const themeColor = ['white-theme', 'red-theme', 'orange-theme'];
 @inject('store') @observer
 export default class ManualCompetition extends Component {
   constructor(props) {
@@ -16,6 +16,7 @@ export default class ManualCompetition extends Component {
       this.setState({ teamNumber: event.target.value });
     };
     this.determinTeamNumber = this.determinTeamNumber.bind(this);
+    this.resetTeamNumber = this.resetTeamNumber.bind(this);
   }
 
   determinTeamNumber() {
@@ -23,12 +24,20 @@ export default class ManualCompetition extends Component {
     this.setState({ confirmNumber: true });
   }
 
+  resetTeamNumber() {
+    this.props.store.hmi.clearTeamNumber();
+    this.setState({
+      confirmNumber: false,
+      teamNumber: '',
+    });
+  }
+
   renderManualCompetition() {
     const {
-      velometerSpeed, behavior, isOverspeed, overspeedCount, outCount,
+      velometerSpeed, behavior, isOverspeed, overspeedCount, outCount, moduleStatus,
     } = this.props.store.hmi;
-    const showInfo = this.state.teamNumber && this.state.teamNumber;
-    const speedColor = `speed-section ${_.get(themeColor,isOverspeed,0)}`;
+    const showInfo = this.state.teamNumber && this.state.confirmNumber;
+    const speedColor = `speed-section ${_.get(themeColor, isOverspeed, 0)}`;
     return (
       <div className="monitor-content">
         <div className={speedColor}>
@@ -63,6 +72,13 @@ export default class ManualCompetition extends Component {
             onClick={this.determinTeamNumber}
           >
             确定
+          </button>
+          <button
+            className="number-btn"
+            disabled={moduleStatus.get('Start Competition') || !this.state.confirmNumber}
+            onClick={this.resetTeamNumber}
+          >
+            重置
           </button>
         </div>
       </div>
