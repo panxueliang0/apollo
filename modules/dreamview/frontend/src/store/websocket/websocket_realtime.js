@@ -462,4 +462,12 @@ export default class RealtimeWebSocketEndpoint {
     }
     this.websocket.send(JSON.stringify(request));
   }
+
+  generateVelometerData(teamNumber) {
+    const request = {
+      type: 'GenerateVelometerData',
+      teamNumber,
+    };
+    this.websocket.send(JSON.stringify(request));
+  }
 }

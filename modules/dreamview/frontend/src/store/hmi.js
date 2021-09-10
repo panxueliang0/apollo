@@ -265,6 +265,10 @@ export default class HMI {
     this.moduleStatus.set(id, !this.moduleStatus.get(id));
     const command = this.moduleStatus.get(id) ? 'START_MODULE' : 'STOP_MODULE';
     WS.executeModuleCommand(id, command);
+    if (_.isEqual(id, 'Start Competition') && _.isEqual(command, 'STOP_MODULE') && this.teamNumber) {
+      WS.generateVelometerData(this.teamNumber);
+      this.clearTeamNumber();
+    }
   }
 
   @computed get inNavigationMode() {
