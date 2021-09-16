@@ -54,7 +54,7 @@ export default class ManualCompetition extends Component {
         </div>
         <div className="monitor-row foul-section">
           <label className="one">
-            <span className="label-txt">犯规次数<br />(低于或高于限速<br />范围都算犯规)</span>
+            <span className="label-txt label-txt-foul">犯规次数</span>
           </label>
           <span className="two">{showInfo ? overspeedCount : ''}</span>
         </div>
