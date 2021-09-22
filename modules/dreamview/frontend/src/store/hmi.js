@@ -113,6 +113,11 @@ export default class HMI {
 
   @action clearTeamNumber() {
     this.teamNumber = '';
+    this.velometerSpeed = 0;
+    this.behavior = '';
+    this.isOverspeed = 0;
+    this.overspeedCount = 0;
+    this.outCount = 0;
   }
 
   @action toggleCoDriverFlag() {
