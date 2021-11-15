@@ -1117,7 +1117,7 @@ if __name__ == "__main__":
     
     controlinfo.Print_len()
     # controlinfo.show_longitudinal()
-    # controlinfo.show_lateral()
+    controlinfo.show_lateral()
     controlinfo.show_localization()
     controlinfo.show_longitudinal_all()
     # controlinfo.plot_matrix_kq()

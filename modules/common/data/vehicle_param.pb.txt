@@ -3,24 +3,24 @@ vehicle_param {
   vehicle_id {
       other_unique_id: "hunter2"
   }
-  front_edge_to_center: 0.5
-  back_edge_to_center: 0.405
-  left_edge_to_center: 0.30
-  right_edge_to_center: 0.30
+  front_edge_to_center: 0.49
+  back_edge_to_center: 0.49
+  left_edge_to_center: 0.372
+  right_edge_to_center: 0.372
 
-  length: 0.9
-  width: 0.6
-  height: 0.2
-  min_turn_radius: 2.50
+  length: 0.98
+  width: 0.745
+  height: 0.38
+  min_turn_radius: 1.6
   max_acceleration: 4.0
-  max_deceleration: -6.0
-  max_steer_angle: 0.63
+  max_deceleration: -3.0
+  max_steer_angle: 0.576
   max_steer_angle_rate: 0.523
   min_steer_angle_rate:0
   steer_ratio: 1
-  wheel_base: 0.8
-  wheel_rolling_radius: 0.202
-  max_abs_speed_when_stopped: 0.15
+  wheel_base: 0.65
+  wheel_rolling_radius: 0.165
+  max_abs_speed_when_stopped: 0.0
 
   brake_deadzone: 0.0
   throttle_deadzone: 0.0

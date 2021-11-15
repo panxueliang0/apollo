@@ -38,6 +38,7 @@ void Chassisstatusfeedback211::Parse(const std::uint8_t* bytes, int32_t length,
   chassis->mutable_hunter2()->mutable_chassis_status_feedback_211()->set_battery_voltage(battery_voltage(bytes, length));
   chassis->mutable_hunter2()->mutable_chassis_status_feedback_211()->set_control_mode(control_mode(bytes, length));
   chassis->mutable_hunter2()->mutable_chassis_status_feedback_211()->set_current_vehicle_status(current_vehicle_status(bytes, length));
+  chassis->mutable_check_response()->set_is_vcu_online(brake_status(bytes, length) == 1);
 }
 
 // config detail: {'bit': 63, 'is_signed_var': False, 'len': 8, 'name': 'count', 'offset': 0.0, 'order': 'motorola', 'physical_range': '[0|255]', 'physical_unit': '', 'precision': 1.0, 'type': 'int'}

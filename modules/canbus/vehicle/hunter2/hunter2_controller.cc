@@ -168,6 +168,25 @@ Chassis Hunter2Controller::chassis() {
   // 8 throttle
   // 9 brake
   // 10  gear
+  if (chassis_detail.hunter2().has_motion_control_feedback_221() &&
+      chassis_detail.hunter2().motion_control_feedback_221().has_speed()) {
+    Chassis::GearPosition gear_pos = Chassis::GEAR_INVALID;
+
+    if (chassis_detail.hunter2().motion_control_feedback_221().speed() > 0) {
+      gear_pos = Chassis::GEAR_DRIVE;
+    }
+    if (chassis_detail.hunter2().motion_control_feedback_221().speed() < 0) {
+      gear_pos = Chassis::GEAR_REVERSE;
+    }
+    if (chassis_detail.hunter2().chassis_status_feedback_211().brake_status() ==
+        Chassis_status_feedback_211::BRAKE_STATUS_BRAKE_LOCK) {
+      gear_pos = Chassis::GEAR_PARKING;
+    }                                                                                         
+
+    chassis_.set_gear_location(gear_pos);
+  } else {
+    chassis_.set_gear_location(Chassis::GEAR_NONE);
+  }
   // 11 steering
   if (chassis_detail.hunter2().has_motion_control_feedback_221() &&
       chassis_detail.hunter2().motion_control_feedback_221().has_steer()) {
@@ -415,7 +434,7 @@ void Hunter2Controller::Steer(double angle) {
     AINFO << "The current driving mode does not need to set steer.";
     return;
   }
-  const double real_angle = 36.5/57.3 * angle / 100.0;
+  const double real_angle = vehicle_params_.max_steer_angle() * angle / 100.0;
   // reverse sign
   // ADD YOUR OWN CAR CHASSIS OPERATION
   motion_control_instruction_111_->set_steer_instruction(real_angle);
@@ -431,7 +450,7 @@ void Hunter2Controller::Steer(double angle, double angle_spd) {
     return;
   }
   // ADD YOUR OWN CAR CHASSIS OPERATION
-  const double real_angle = 36.5/57.3 * angle / 100.0;
+  const double real_angle = vehicle_params_.max_steer_angle() * angle / 100.0;
   motion_control_instruction_111_->set_steer_instruction(real_angle);
 }
 
@@ -560,8 +579,37 @@ void Hunter2Controller::SecurityDogThreadFunc() {
 }
 
 bool Hunter2Controller::CheckResponse(const int32_t flags, bool need_wait) {
-  /* ADD YOUR OWN CAR CHASSIS OPERATION
-  */
+  int32_t retry_num = 20;
+  ChassisDetail chassis_detail;
+  bool is_vcu_online = false;
+
+  do {
+    if (message_manager_->GetSensorData(&chassis_detail) != ErrorCode::OK) {
+      AERROR_EVERY(100) << "get chassis detail failed.";
+      return false;
+    }
+    bool check_ok = true;
+
+    if (flags & CHECK_RESPONSE_SPEED_UNIT_FLAG) {
+      is_vcu_online = chassis_detail.has_check_response() &&
+                      chassis_detail.check_response().has_is_vcu_online() &&
+                      chassis_detail.check_response().is_vcu_online();
+      check_ok = check_ok && is_vcu_online;
+    }
+    if (check_ok) {
+      return true;
+    } else {
+      AINFO << "Need to check response again.";
+    }
+    if (need_wait) {
+      --retry_num;
+      std::this_thread::sleep_for(
+          std::chrono::duration<double, std::milli>(20));
+    }
+  } while (need_wait && retry_num);
+
+  AINFO << ", is_vcu_online:" << is_vcu_online;
+
   return true;
 }
 

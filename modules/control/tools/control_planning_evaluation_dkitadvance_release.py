@@ -192,9 +192,9 @@ class ControlInfo(object):
         # del_head_error = self.calculate_head_error(self.current_speed)
         del_head_error = self.calculate_head_error(self.current_speed)
         # del_head_error = 100
-        # print('del_head_error is %',  del_head_error)
+        print('del_head_error is %',  del_head_error)
         del_end_error = self.calculate_end_error(self.current_station)
-        # print('del_end_error is %',  del_end_error)
+        print('del_end_error is %',  del_end_error)
         for loc, ax in numpy.ndenumerate(self.ax):
             ax.clear()
         self.print_traj = t
@@ -203,10 +203,12 @@ class ControlInfo(object):
         self.station_reference = self.station_reference[del_head_error:del_end_error]
         self.current_station = self.current_station[del_head_error:del_end_error]
         max_station = max(self.current_station)
-        # print "Vehicel max drive distance is: %.0fm" % int(max_station)
+        print("Vehicel max drive distance is: %.0fm" % int(max_station))
         self.station_error = self.station_error[del_head_error:del_end_error]
         self.controltime = self.controltime[del_head_error:del_end_error]
-        
+        max_station_error = max(self.station_error)
+        print("Vehicel max drive station_error is: %.0fm" % int(max_station_error))
+
         if not self.print_traj:
             self.ax[0, 0].plot(
             self.controltime, self.station_reference, linewidth=1.0, label='station_reference')
@@ -224,7 +226,7 @@ class ControlInfo(object):
             self.ax[0, 0].grid(True)
             self.ax[0, 0].set_title('station information')
             self.ax[0, 0].set_xlabel('Time')
-        abs_station_error = map(abs, self.station_error)
+        abs_station_error = list(map(abs, self.station_error))
         max_station_error = max(abs_station_error)
         min_station_error = min(abs_station_error)
         average_station_error = self.calculate_average(abs_station_error)
@@ -244,7 +246,7 @@ class ControlInfo(object):
             self.ax[0, 1].grid(True)
             self.ax[0, 1].set_title('lateral Information')
             self.ax[0, 1].set_xlabel('Time')
-        abs_lateral_error = map(abs, self.lateral_error)
+        abs_lateral_error = list(map(abs, self.lateral_error))
         max_lateral_error = max(abs_lateral_error)
         min_lateral_error = min(abs_lateral_error)
         average_lateral_error = self.calculate_average(abs_lateral_error)
@@ -273,7 +275,7 @@ class ControlInfo(object):
             self.ax[1, 0].grid(True)
             self.ax[1, 0].set_title('Speed information')
             self.ax[1, 0].set_xlabel('Time')
-        abs_speed_error = map(abs, self.speed_error)
+        abs_speed_error = list(map(abs, self.speed_error))
         max_speed_error = max(abs_speed_error)
         min_speed_error = min(abs_speed_error)
         average_speed_error = self.calculate_average(abs_speed_error)
@@ -302,7 +304,7 @@ class ControlInfo(object):
             self.ax[1, 1].grid(True)
             self.ax[1, 1].set_title('Heading information')
             self.ax[1, 1].set_xlabel('Time')
-        abs_heading_error = map(abs, self.heading_error)
+        abs_heading_error = list(map(abs, self.heading_error))
         max_heading_error = max(abs_heading_error)
         min_heading_error = min(abs_heading_error)
         average_heading_error = self.calculate_average(abs_heading_error)
