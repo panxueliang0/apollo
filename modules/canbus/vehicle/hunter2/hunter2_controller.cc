@@ -237,25 +237,6 @@ ErrorCode Hunter2Controller::EnableAutoMode() {
     AINFO << "Switch to COMPLETE_AUTO_DRIVE mode ok.";
     return ErrorCode::OK;
   }
-  return ErrorCode::OK;
-  /* ADD YOUR OWN CAR CHASSIS OPERATION
-  brake_60_->set_enable();
-  throttle_62_->set_enable();
-  steering_64_->set_enable();
-
-  can_sender_->Update();
-  const int32_t flag =
-      CHECK_RESPONSE_STEER_UNIT_FLAG | CHECK_RESPONSE_SPEED_UNIT_FLAG;
-  if (!CheckResponse(flag, true)) {
-    AERROR << "Failed to switch to COMPLETE_AUTO_DRIVE mode.";
-    Emergency();
-    set_chassis_error_code(Chassis::CHASSIS_ERROR);
-    return ErrorCode::CANBUS_ERROR;
-  }
-  set_driving_mode(Chassis::COMPLETE_AUTO_DRIVE);
-  AINFO << "Switch to COMPLETE_AUTO_DRIVE mode ok.";
-  return ErrorCode::OK;
-  */
 }
 
 ErrorCode Hunter2Controller::DisableAutoMode() {
@@ -268,54 +249,12 @@ ErrorCode Hunter2Controller::DisableAutoMode() {
 }
 
 ErrorCode Hunter2Controller::EnableSteeringOnlyMode() {
-  if (driving_mode() == Chassis::COMPLETE_AUTO_DRIVE ||
-      driving_mode() == Chassis::AUTO_STEER_ONLY) {
-    set_driving_mode(Chassis::AUTO_STEER_ONLY);
-    AINFO << "Already in AUTO_STEER_ONLY mode.";
-    return ErrorCode::OK;
-  }
-  /* ADD YOUR OWN CAR CHASSIS OPERATION
-  brake_60_->set_disable();
-  throttle_62_->set_disable();
-  steering_64_->set_enable();
-
-  can_sender_->Update();
-  if (!CheckResponse(CHECK_RESPONSE_STEER_UNIT_FLAG, true)) {
-    AERROR << "Failed to switch to AUTO_STEER_ONLY mode.";
-    Emergency();
-    set_chassis_error_code(Chassis::CHASSIS_ERROR);
-    return ErrorCode::CANBUS_ERROR;
-  }
-  set_driving_mode(Chassis::AUTO_STEER_ONLY);
-  AINFO << "Switch to AUTO_STEER_ONLY mode ok.";
-  return ErrorCode::OK;
-  */
+  AFATAL << "SteeringOnlyMode Not supported!";
   return ErrorCode::OK;
 }
 
 ErrorCode Hunter2Controller::EnableSpeedOnlyMode() {
-  if (driving_mode() == Chassis::COMPLETE_AUTO_DRIVE ||
-      driving_mode() == Chassis::AUTO_SPEED_ONLY) {
-    set_driving_mode(Chassis::AUTO_SPEED_ONLY);
-    AINFO << "Already in AUTO_SPEED_ONLY mode";
-    return ErrorCode::OK;
-  }
-  /* ADD YOUR OWN CAR CHASSIS OPERATION
-  brake_60_->set_enable();
-  throttle_62_->set_enable();
-  steering_64_->set_disable();
-
-  can_sender_->Update();
-  if (!CheckResponse(CHECK_RESPONSE_SPEED_UNIT_FLAG, true)) {
-    AERROR << "Failed to switch to AUTO_SPEED_ONLY mode.";
-    Emergency();
-    set_chassis_error_code(Chassis::CHASSIS_ERROR);
-    return ErrorCode::CANBUS_ERROR;
-  }
-  set_driving_mode(Chassis::AUTO_SPEED_ONLY);
-  AINFO << "Switch to AUTO_SPEED_ONLY mode ok.";
-  return ErrorCode::OK;
-  */
+  AFATAL << "SpeedOnlyMode Not supported!";
   return ErrorCode::OK;
 }
 
@@ -326,43 +265,6 @@ void Hunter2Controller::Gear(Chassis::GearPosition gear_position) {
     AINFO << "This drive mode no need to set gear.";
     return;
   }
-  /* ADD YOUR OWN CAR CHASSIS OPERATION
-  switch (gear_position) {
-    case Chassis::GEAR_NEUTRAL: {
-      gear_66_->set_gear_neutral();
-      break;
-    }
-    case Chassis::GEAR_REVERSE: {
-      gear_66_->set_gear_reverse();
-      break;
-    }
-    case Chassis::GEAR_DRIVE: {
-      gear_66_->set_gear_drive();
-      break;
-    }
-    case Chassis::GEAR_PARKING: {
-      gear_66_->set_gear_park();
-      break;
-    }
-    case Chassis::GEAR_LOW: {
-      gear_66_->set_gear_low();
-      break;
-    }
-    case Chassis::GEAR_NONE: {
-      gear_66_->set_gear_none();
-      break;
-    }
-    case Chassis::GEAR_INVALID: {
-      AERROR << "Gear command is invalid!";
-      gear_66_->set_gear_none();
-      break;
-    }
-    default: {
-      gear_66_->set_gear_none();
-      break;
-    }
-  }
-  */
 }
 
 // brake with new acceleration
@@ -581,7 +483,9 @@ void Hunter2Controller::SecurityDogThreadFunc() {
 bool Hunter2Controller::CheckResponse(const int32_t flags, bool need_wait) {
   int32_t retry_num = 20;
   ChassisDetail chassis_detail;
+  bool is_eps_online = false;
   bool is_vcu_online = false;
+  bool is_esp_online = false;
 
   do {
     if (message_manager_->GetSensorData(&chassis_detail) != ErrorCode::OK) {
@@ -589,12 +493,21 @@ bool Hunter2Controller::CheckResponse(const int32_t flags, bool need_wait) {
       return false;
     }
     bool check_ok = true;
+    if (flags & CHECK_RESPONSE_STEER_UNIT_FLAG) {
+      is_eps_online = chassis_detail.has_check_response() &&
+                      chassis_detail.check_response().has_is_eps_online() &&
+                      chassis_detail.check_response().is_eps_online();
+      check_ok = check_ok && is_eps_online;
+    }
 
     if (flags & CHECK_RESPONSE_SPEED_UNIT_FLAG) {
       is_vcu_online = chassis_detail.has_check_response() &&
                       chassis_detail.check_response().has_is_vcu_online() &&
                       chassis_detail.check_response().is_vcu_online();
-      check_ok = check_ok && is_vcu_online;
+      is_esp_online = chassis_detail.has_check_response() &&
+                      chassis_detail.check_response().has_is_esp_online() &&
+                      chassis_detail.check_response().is_esp_online();
+      check_ok = check_ok && is_vcu_online && is_esp_online;
     }
     if (check_ok) {
       return true;
@@ -608,9 +521,11 @@ bool Hunter2Controller::CheckResponse(const int32_t flags, bool need_wait) {
     }
   } while (need_wait && retry_num);
 
-  AINFO << ", is_vcu_online:" << is_vcu_online;
+  AINFO << "check_response fail: is_eps_online:" << is_eps_online
+        << ", is_vcu_online:" << is_vcu_online
+        << ", is_esp_online:" << is_esp_online;
 
-  return true;
+  return false;
 }
 
 void Hunter2Controller::set_chassis_error_mask(const int32_t mask) {
