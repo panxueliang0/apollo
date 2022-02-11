@@ -376,6 +376,7 @@ Status LonController::ComputeControlCommand(
   }
 
   // if the car is driven by acceleration, disgard the cmd->throttle and brake
+  cmd->set_speed(speed_controller_input_limited);
   cmd->set_throttle(throttle_cmd);
   cmd->set_brake(brake_cmd);
   cmd->set_acceleration(acceleration_cmd);
