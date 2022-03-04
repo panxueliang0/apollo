@@ -1,0 +1,245 @@
+VERSION ""
+
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_: ACU VCU
+VAL_TABLE_ door 4 "closing_door" 3 "opening_door" 2 "door_open" 1 "door_close" 0 "No_active" ;
+VAL_TABLE_ Gear 3 "D" 2 "N" 1 "R" 0 "Invalid" ;
+VAL_TABLE_ Pedal_Ctrl_Request 3 "Invalit" 2 "Default" 1 "On" 0 "Off" ;
+VAL_TABLE_ steering_status 6 "clear_default" 5 "reset_from_maunal_cmd" 4 "manual_cmd" 3 "null" 2 "speed_cmd" 1 "auto_drive" 0 "ready" ;
+
+
+BO_ 3221225472 VECTOR__INDEPENDENT_SIG_MSG: 0 Vector__XXX
+ SG_ Steering_RESVERD3 : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ Steering_RESVERD1 : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ Steering_RESVERD2 : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ New_Signal_154 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ New_Signal_153 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BUSV_Aircondition_Status : 0|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BUSV_SmallLamp_Status : 0|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BUS_Vehicle_Speed_RED_Byte45 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BUS_Vehicle_Speed_RED_Byte0123 : 0|32@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BUS_Battery_RESVERED_Byte67 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BUS_Battery_RESVERED_Byte2345 : 0|32@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BUS_RESVERED_Byte67 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BUS_RESVERED_Byte45 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BUS_RESVERED1 : 0|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ VCU_Brk_RESERVED_Byte7 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ VCU_Brk_RESERVED_Byte56 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ VCU_Brk_RESERVED_Byte34 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ VCU_Brk_RESERVED1 : 0|6@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ VCU_Basic_RESVERED : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ VCU_Basic_RESVERED_Byte23 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ VCU_Drive_RESERVED1 : 0|6@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ PMF_RESVERED_Byte56 : 0|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ PMF_RESVERED_Byte34 : 0|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ PMF_RESVERED_Byte12 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ EPS_RESVERED0 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ EPS_REVERED : 0|4@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ SP_Defaulr_Code : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ SP_REVERED_Byte6 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ SP_REVERED_Byte45 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ SP_REVERED_Byte23 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ SP_RTK_Power_FB : 0|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ SP_FullView_Power_FB : 0|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ SP_Mobieye_Power_FB : 0|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ SP_MmRadar_Power_FB : 0|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ SP_UltrasonicRadar_Power_FB : 0|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ SP_BSDRadar_Power_FB : 0|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ SP_SingleLindLiDar_Power_FB : 0|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ SP_16LiDar_Power_Feedback : 0|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ CP_RESVERD : 0|56@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ SR_RESVERD_Byte7 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Pedal_RESVERD3 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Pedal_RESVERD1 : 0|6@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2566885783 Brake_NBoost_ctrl: 8 ACU
+ SG_ AEB_BrkPelPosDes : 16|16@1+ (0.01,0) [0|0] "" Vector__XXX
+
+BO_ 2566811307 WheelSpeed_Feedback: 8 VCU
+ SG_ WS_RearRight_Wheelspeed : 48|16@1+ (0.00390625,0) [0|0] "" Vector__XXX
+ SG_ WS_RearLeft_Wheelspeed : 32|16@1+ (0.00390625,0) [0|0] "" Vector__XXX
+ SG_ WS_FrontRight_Wheelspeed : 16|16@1+ (0.00390625,0) [0|0] "" Vector__XXX
+ SG_ WS_FrontLeft_Wheelspeed : 0|16@1+ (0.00390625,0) [0|0] "" Vector__XXX
+
+BO_ 2566883243 BreakSystem_Feedback: 8 VCU
+ SG_ BRK_FB_SystemDefault : 16|8@1+ (0.1,0) [0|25.5] "" Vector__XXX
+ SG_ EPB_FB_Main_BrkPressure : 48|8@1+ (0.1,0) [0|0] "" Vector__XXX
+ SG_ EPB_FB_Right_BrkPressure_Setvaul : 40|8@1+ (0.1,0) [0|0] "" Vector__XXX
+ SG_ EPB_FB_Left_BrkPressure_Setvaule : 32|8@1+ (0.1,0) [0|0] "" Vector__XXX
+ SG_ BRK_FB_EPB_Feedback : 31|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BEK_FB_Break_Enable : 30|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BRK_FB_OverHot_Warning : 29|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BRK_FB_Right_BreakPressure : 8|8@1- (0.1,0) [-12.8|12.7] "" Vector__XXX
+ SG_ BRK_FB_Left_BreakPressure : 0|8@1+ (0.1,0) [0|25.5] "" Vector__XXX
+
+BO_ 2566908823 SOC: 8 VCU
+ SG_ SOC : 32|8@1+ (0.4,0) [0|0] "" Vector__XXX
+
+BO_ 2566522135 BUS_Vehicle_Status: 8 VCU
+ SG_ BUSV_EmergencyHammer_Worning : 40|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BUSV_Break_Wear : 48|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BUSV_Body_Notify : 44|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BUSV_TurnLeft_Stauts : 36|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BUSV_TurnRight_Status : 34|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BUSV_LowBeam_Status : 32|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BUSV_Horn_Status : 22|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BUSV_Park_Status : 18|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BUSV_Break_Status : 16|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BUSV_Fdoor_Status : 10|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BUSV_Reversing_Status : 8|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BUS_Vehicle_Sta_ID : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2365484055 BUS_Vehicle_Speed_Msg: 8 VCU
+ SG_ BUS_Vehicle_Speed : 48|16@1+ (0.00390625,0) [0|0] "Km/h" Vector__XXX
+
+BO_ 2566524951 BUS_Battery_Meg: 8 VCU
+ SG_ BUS_Battery_Voltage : 0|16@1+ (0.05,0) [0|0] "" Vector__XXX
+
+BO_ 2566840343 BUS_Mileage: 8 VCU
+ SG_ BUS_Mileage_Long : 32|32@1+ (0.125,0) [0|0] "Km" Vector__XXX
+ SG_ BUS_Mileage_Short : 0|32@1+ (0.125,0) [0|0] "Km" Vector__XXX
+
+BO_ 2566521111 BUS_Inteligent_Control_Status: 8 VCU
+ SG_ BUS_InnerDoor_DaySensor : 28|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BUS_OutDoor_DaySensor : 26|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BUS_OutDoor_key : 24|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BUS_InnerDoor_Key : 22|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BUS_Breaking_Key : 20|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BUS_Reversing_key : 18|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BUS_Drive_key : 16|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BUS_Joystick_Right_Key : 14|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BUS_Joystick_Left_Key : 12|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BUS_Joystick_Behind_Key : 10|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BUS_Joystick_Front_Key : 8|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BUS_Parking_Request_SW : 6|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BUS_EngineStar_SW : 4|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BUS_Disable_DriveKeyboard : 2|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BUS_Emergency_SW : 0|2@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2566882727 VCU_BreakSys_CMD: 8 VCU
+ SG_ VCU_Brk_AutoParking_Request : 23|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ VCU_Brk_Initivate_Enable : 22|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ VCU_Brk_Right_Pressure : 8|8@1+ (0.1,0) [0|25.5] "MPa" Vector__XXX
+ SG_ VCU_Brk_Left_Pressure : 0|8@1+ (0.1,0) [0|25.5] "MPa" Vector__XXX
+
+BO_ 2566908567 VCU_Basic_Message: 8 VCU
+ SG_ VCU_Basic_Onebit : 62|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ VCU_Basic_HP_Halt : 61|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ VCU_Basic_GeatDefault_Code : 59|2@1- (1,0) [0|0] "" Vector__XXX
+ SG_ VCU_Basic_SysDefault_Level : 56|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ VCU_Basic_MotoController_Temp : 48|8@1- (1,-40) [0|0] "" Vector__XXX
+ SG_ VCU_Basic_Motor_Tempreture : 40|8@1- (1,-40) [0|0] "" Vector__XXX
+ SG_ VCU_Basic_Charge_Status : 37|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ VCU_Basic_Real_HighVoltage_Sta : 34|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ VCU_Basic_Real_Gear : 32|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ VCU_Basic_Motor_Speed : 0|16@1+ (0.5,0) [0|0] "rpm" Vector__XXX
+
+BO_ 2566877335 VCU_Drive_FeedBack: 8 VCU
+ SG_ VCU_Drive_Life_Signal : 56|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ VCU_Drive_Vehicle_Speed : 40|16@1+ (1,0) [0|0] "Km/h" Vector__XXX
+ SG_ VCU_Drive_Real_Torque : 24|16@1+ (1,-5000) [0|0] "Nm" Vector__XXX
+ SG_ VCU_Drive_Break_Pedal_Position : 16|8@1+ (0.4,0) [0|0] "%" Vector__XXX
+ SG_ VCU_Drive_Throttle_Pedal_Posi : 8|8@1+ (0.4,0) [0|0] "%" Vector__XXX
+ SG_ VCU_Drive_AutoDrive_Confirm : 0|2@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2566884780 ParkingMode_Feedback: 8 VCU
+ SG_ PMF_Default_Code : 56|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ PMF_Current_Status : 4|4@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ PMF_EPB_OnOff : 0|4@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2566882218 EPS_Feedback: 8 VCU
+ SG_ EPS_VCU_Status : 56|4@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ EPS_Target_Steering_Velocity : 48|8@1+ (10,0) [0|0] "" Vector__XXX
+ SG_ EPS_Real_Angle : 39|16@0+ (0.1,-870) [-870|870] "" Vector__XXX
+ SG_ EPS_Targit_Angle : 23|16@0+ (0.1,-870) [0|0] "" Vector__XXX
+ SG_ EPS_Wheel_Torque : 8|8@1+ (0.07,-8.96) [0|8.96] "Nm" Vector__XXX
+
+BO_ 2566884521 Controller_Parking: 8 ACU
+ SG_ CP_EPB_Enable : 4|4@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ CP_Park_ACTIVE : 0|4@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2566882985 Controller_Status_Requset: 8 ACU
+ SG_ SR_RTK_Power : 54|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ SR_FullView_Power : 52|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ SR_Mobieye_Power : 50|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ SR_MmRadar_Power : 48|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ SR_UltrasonicRadar_Power : 46|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ SR_BSDRadar_Power : 44|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ SR_SingleLindLiDar_Power : 42|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ SR_16LiDar_Power : 40|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ SR_REEVERD1 : 38|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ SR_Horn : 36|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ SR_FluorescentLamps : 34|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ SR_Rooflight : 32|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ SR_MinilLight : 30|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ SR_BreakLight : 28|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ SR_TurnRight : 26|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ SR_TurnLeft : 24|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ SR_ReversingLight : 22|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ SR_Lowbeam : 20|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ SR_Fdoor : 18|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ SR_Gear_Status : 16|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ SR_VehicleMoveing_Status : 12|4@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ SR_Drive_Status : 8|4@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ SR_InertialNavigation_Status : 4|4@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ SR_RTK_Status : 0|4@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2566882473 Controller_Pedal_CMD: 8 ACU
+ SG_ Pedal_Check : 56|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Pedal_HeartBeat : 48|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Pedal_Break : 24|8@1+ (0.4,0) [0|100] "%" Vector__XXX
+ SG_ Brake_Select : 22|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Pedal_Gear : 16|4@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Pedal_Throttle : 8|8@1+ (0.4,0) [0|100] "%" Vector__XXX
+ SG_ Pedal_Ctrl_Request : 0|2@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2566881961 Controller_Steering_CMD: 8 ACU
+ SG_ Steering_VCU_Status : 20|4@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Steering_HeartBeat : 56|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ Steering_Velocity : 32|8@1+ (10,0) [0|540] "" Vector__XXX
+ SG_ Steering_Ctrl_Status : 16|4@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Streering_Angle : 7|16@0+ (0.1,-870) [-870|870] "degree" Vector__XXX
+
+
+
+CM_ BO_ 3221225472 "This is a message for not used signals, created by Vector CANdb++ DBC OLE DB Provider.";
+BA_DEF_  "BusType" STRING ;
+BA_DEF_DEF_  "BusType" "CAN";
+VAL_ 2566522135 BUSV_Fdoor_Status 4 "closing_door" 3 "opening_door" 2 "door_open" 1 "door_close" 0 "No_active" ;
+VAL_ 2566908567 VCU_Basic_Real_Gear 3 "D" 2 "N" 1 "R" 0 "Invalid" ;
+VAL_ 2566882473 Pedal_Gear 3 "D" 2 "N" 1 "R" 0 "Invalid" ;
+VAL_ 2566882473 Pedal_Ctrl_Request 3 "Invalit" 2 "Default" 1 "On" 0 "Off" ;
+VAL_ 2566881961 Steering_Ctrl_Status 6 "clear_default" 5 "reset_from_maunal_cmd" 4 "manual_cmd" 3 "null" 2 "speed_cmd" 1 "auto_drive" 0 "ready" ;
+

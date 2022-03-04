@@ -1,0 +1,1675 @@
+car_type: kinglong
+protocols:
+  8cfe6c17:
+    id: 8cfe6c17
+    name: bus_vehicle_speed_msg_8cfe6c17
+    protocol_type: report
+    sender: VCU
+    vars:
+    - bit: 48
+      is_signed_var: false
+      len: 16
+      name: BUS_Vehicle_Speed
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: Km/h
+      precision: 0.00390625
+      type: double
+  98fa0117:
+    id: 98fa0117
+    name: bus_inteligent_control_status_98fa0117
+    protocol_type: report
+    sender: VCU
+    vars:
+    - bit: 28
+      is_signed_var: false
+      len: 2
+      name: BUS_InnerDoor_DaySensor
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 26
+      is_signed_var: false
+      len: 2
+      name: BUS_OutDoor_DaySensor
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 24
+      is_signed_var: false
+      len: 2
+      name: BUS_OutDoor_key
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 22
+      is_signed_var: false
+      len: 2
+      name: BUS_InnerDoor_Key
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 20
+      is_signed_var: false
+      len: 2
+      name: BUS_Breaking_Key
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 18
+      is_signed_var: false
+      len: 2
+      name: BUS_Reversing_key
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 16
+      is_signed_var: false
+      len: 2
+      name: BUS_Drive_key
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 14
+      is_signed_var: false
+      len: 2
+      name: BUS_Joystick_Right_Key
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 12
+      is_signed_var: false
+      len: 2
+      name: BUS_Joystick_Left_Key
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 10
+      is_signed_var: false
+      len: 2
+      name: BUS_Joystick_Behind_Key
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 8
+      is_signed_var: false
+      len: 2
+      name: BUS_Joystick_Front_Key
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 6
+      is_signed_var: false
+      len: 2
+      name: BUS_Parking_Request_SW
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 4
+      is_signed_var: false
+      len: 2
+      name: BUS_EngineStar_SW
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 2
+      is_signed_var: false
+      len: 2
+      name: BUS_Disable_DriveKeyboard
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 0
+      is_signed_var: false
+      len: 2
+      name: BUS_Emergency_SW
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+  98fa0517:
+    id: 98fa0517
+    name: bus_vehicle_status_98fa0517
+    protocol_type: report
+    sender: VCU
+    vars:
+    - bit: 40
+      is_signed_var: false
+      len: 2
+      name: BUSV_EmergencyHammer_Worning
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 48
+      is_signed_var: false
+      len: 2
+      name: BUSV_Break_Wear
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 44
+      is_signed_var: false
+      len: 2
+      name: BUSV_Body_Notify
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 36
+      is_signed_var: false
+      len: 2
+      name: BUSV_TurnLeft_Stauts
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 34
+      is_signed_var: false
+      len: 2
+      name: BUSV_TurnRight_Status
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 32
+      is_signed_var: false
+      len: 2
+      name: BUSV_LowBeam_Status
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 22
+      is_signed_var: false
+      len: 2
+      name: BUSV_Horn_Status
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 18
+      is_signed_var: false
+      len: 2
+      name: BUSV_Park_Status
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 16
+      is_signed_var: false
+      len: 2
+      name: BUSV_Break_Status
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 10
+      enum:
+        0: BUSV_FDOOR_STATUS_NO_ACTIVE
+        1: BUSV_FDOOR_STATUS_DOOR_CLOSE
+        2: BUSV_FDOOR_STATUS_DOOR_OPEN
+        3: BUSV_FDOOR_STATUS_OPENING_DOOR
+        4: BUSV_FDOOR_STATUS_CLOSING_DOOR
+      is_signed_var: false
+      len: 2
+      name: BUSV_Fdoor_Status
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 8
+      is_signed_var: false
+      len: 2
+      name: BUSV_Reversing_Status
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 0
+      is_signed_var: false
+      len: 8
+      name: BUS_Vehicle_Sta_ID
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+  98fa1017:
+    id: 98fa1017
+    name: bus_battery_meg_98fa1017
+    protocol_type: report
+    sender: VCU
+    vars:
+    - bit: 0
+      is_signed_var: false
+      len: 16
+      name: BUS_Battery_Voltage
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 0.05
+      type: double
+  98fe6eab:
+    id: 98fe6eab
+    name: wheelspeed_feedback_98fe6eab
+    protocol_type: report
+    sender: VCU
+    vars:
+    - bit: 48
+      is_signed_var: false
+      len: 16
+      name: WS_RearRight_Wheelspeed
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 0.00390625
+      type: double
+    - bit: 32
+      is_signed_var: false
+      len: 16
+      name: WS_RearLeft_Wheelspeed
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 0.00390625
+      type: double
+    - bit: 16
+      is_signed_var: false
+      len: 16
+      name: WS_FrontRight_Wheelspeed
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 0.00390625
+      type: double
+    - bit: 0
+      is_signed_var: false
+      len: 16
+      name: WS_FrontLeft_Wheelspeed
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 0.00390625
+      type: double
+  98fee017:
+    id: 98fee017
+    name: bus_mileage_98fee017
+    protocol_type: report
+    sender: VCU
+    vars:
+    - bit: 32
+      is_signed_var: false
+      len: 32
+      name: BUS_Mileage_Long
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: Km
+      precision: 0.125
+      type: double
+    - bit: 0
+      is_signed_var: false
+      len: 32
+      name: BUS_Mileage_Short
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: Km
+      precision: 0.125
+      type: double
+  98ff7097:
+    id: 98ff7097
+    name: vcu_drive_feedback_98ff7097
+    protocol_type: report
+    sender: VCU
+    vars:
+    - bit: 56
+      is_signed_var: false
+      len: 8
+      name: VCU_Drive_Life_Signal
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 40
+      is_signed_var: false
+      len: 16
+      name: VCU_Drive_Vehicle_Speed
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: Km/h
+      precision: 1.0
+      type: int
+    - bit: 24
+      is_signed_var: false
+      len: 16
+      name: VCU_Drive_Real_Torque
+      offset: -5000.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: Nm
+      precision: 1.0
+      type: int
+    - bit: 16
+      is_signed_var: false
+      len: 8
+      name: VCU_Drive_Break_Pedal_Position
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: '%'
+      precision: 0.4
+      type: double
+    - bit: 8
+      is_signed_var: false
+      len: 8
+      name: VCU_Drive_Throttle_Pedal_Posi
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: '%'
+      precision: 0.4
+      type: double
+    - bit: 0
+      is_signed_var: false
+      len: 2
+      name: VCU_Drive_AutoDrive_Confirm
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+  98ff82a9:
+    id: 98ff82a9
+    name: controller_steering_cmd_98ff82a9
+    protocol_type: control
+    sender: ACU
+    vars:
+    - bit: 20
+      is_signed_var: false
+      len: 4
+      name: Steering_VCU_Status
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 56
+      is_signed_var: false
+      len: 8
+      name: Steering_HeartBeat
+      offset: 0.0
+      order: intel
+      physical_range: '[0|255]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 32
+      is_signed_var: false
+      len: 8
+      name: Steering_Velocity
+      offset: 0.0
+      order: intel
+      physical_range: '[0|540]'
+      physical_unit: ''
+      precision: 10.0
+      type: double
+    - bit: 16
+      enum:
+        0: STEERING_CTRL_STATUS_READY
+        1: STEERING_CTRL_STATUS_AUTO_DRIVE
+        2: STEERING_CTRL_STATUS_SPEED_CMD
+        3: STEERING_CTRL_STATUS_NULL
+        4: STEERING_CTRL_STATUS_MANUAL_CMD
+        5: STEERING_CTRL_STATUS_RESET_FROM_MAUNAL_CMD
+        6: STEERING_CTRL_STATUS_CLEAR_DEFAULT
+      is_signed_var: false
+      len: 4
+      name: Steering_Ctrl_Status
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 7
+      is_signed_var: false
+      len: 16
+      name: Streering_Angle
+      offset: -870.0
+      order: motorola
+      physical_range: '[-870|870]'
+      physical_unit: degree
+      precision: 0.1
+      type: double
+  98ff83aa:
+    id: 98ff83aa
+    name: eps_feedback_98ff83aa
+    protocol_type: report
+    sender: VCU
+    vars:
+    - bit: 56
+      is_signed_var: false
+      len: 4
+      name: EPS_VCU_Status
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 48
+      is_signed_var: false
+      len: 8
+      name: EPS_Target_Steering_Velocity
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 10.0
+      type: double
+    - bit: 39
+      is_signed_var: false
+      len: 16
+      name: EPS_Real_Angle
+      offset: -870.0
+      order: motorola
+      physical_range: '[-870|870]'
+      physical_unit: ''
+      precision: 0.1
+      type: double
+    - bit: 23
+      is_signed_var: false
+      len: 16
+      name: EPS_Targit_Angle
+      offset: -870.0
+      order: motorola
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 0.1
+      type: double
+    - bit: 8
+      is_signed_var: false
+      len: 8
+      name: EPS_Wheel_Torque
+      offset: -8.96
+      order: intel
+      physical_range: '[0|8.96]'
+      physical_unit: Nm
+      precision: 0.07
+      type: double
+  98ff84a9:
+    id: 98ff84a9
+    name: controller_pedal_cmd_98ff84a9
+    protocol_type: control
+    sender: ACU
+    vars:
+    - bit: 56
+      is_signed_var: false
+      len: 8
+      name: Pedal_Check
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 48
+      is_signed_var: false
+      len: 8
+      name: Pedal_HeartBeat
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 24
+      is_signed_var: false
+      len: 8
+      name: Pedal_Break
+      offset: 0.0
+      order: intel
+      physical_range: '[0|100]'
+      physical_unit: '%'
+      precision: 0.4
+      type: double
+    - bit: 22
+      is_signed_var: false
+      len: 2
+      name: Brake_Select
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 16
+      enum:
+        0: PEDAL_GEAR_INVALID
+        1: PEDAL_GEAR_R
+        2: PEDAL_GEAR_N
+        3: PEDAL_GEAR_D
+      is_signed_var: false
+      len: 4
+      name: Pedal_Gear
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 8
+      is_signed_var: false
+      len: 8
+      name: Pedal_Throttle
+      offset: 0.0
+      order: intel
+      physical_range: '[0|100]'
+      physical_unit: '%'
+      precision: 0.4
+      type: double
+    - bit: 0
+      enum:
+        0: PEDAL_CTRL_REQUEST_OFF
+        1: PEDAL_CTRL_REQUEST_ON
+        2: PEDAL_CTRL_REQUEST_DEFAULT
+        3: PEDAL_CTRL_REQUEST_INVALIT
+      is_signed_var: false
+      len: 2
+      name: Pedal_Ctrl_Request
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+  98ff85a7:
+    id: 98ff85a7
+    name: vcu_breaksys_cmd_98ff85a7
+    protocol_type: report
+    sender: VCU
+    vars:
+    - bit: 23
+      is_signed_var: false
+      len: 1
+      name: VCU_Brk_AutoParking_Request
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 22
+      is_signed_var: false
+      len: 1
+      name: VCU_Brk_Initivate_Enable
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 8
+      is_signed_var: false
+      len: 8
+      name: VCU_Brk_Right_Pressure
+      offset: 0.0
+      order: intel
+      physical_range: '[0|25.5]'
+      physical_unit: MPa
+      precision: 0.1
+      type: double
+    - bit: 0
+      is_signed_var: false
+      len: 8
+      name: VCU_Brk_Left_Pressure
+      offset: 0.0
+      order: intel
+      physical_range: '[0|25.5]'
+      physical_unit: MPa
+      precision: 0.1
+      type: double
+  98ff86a9:
+    id: 98ff86a9
+    name: controller_status_requset_98ff86a9
+    protocol_type: control
+    sender: ACU
+    vars:
+    - bit: 54
+      is_signed_var: false
+      len: 2
+      name: SR_RTK_Power
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 52
+      is_signed_var: false
+      len: 2
+      name: SR_FullView_Power
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 50
+      is_signed_var: false
+      len: 2
+      name: SR_Mobieye_Power
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 48
+      is_signed_var: false
+      len: 2
+      name: SR_MmRadar_Power
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 46
+      is_signed_var: false
+      len: 2
+      name: SR_UltrasonicRadar_Power
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 44
+      is_signed_var: false
+      len: 2
+      name: SR_BSDRadar_Power
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 42
+      is_signed_var: false
+      len: 2
+      name: SR_SingleLindLiDar_Power
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 40
+      is_signed_var: false
+      len: 2
+      name: SR_16LiDar_Power
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 38
+      is_signed_var: false
+      len: 2
+      name: SR_REEVERD1
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 36
+      is_signed_var: false
+      len: 2
+      name: SR_Horn
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 34
+      is_signed_var: false
+      len: 2
+      name: SR_FluorescentLamps
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 32
+      is_signed_var: false
+      len: 2
+      name: SR_Rooflight
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 30
+      is_signed_var: false
+      len: 2
+      name: SR_MinilLight
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 28
+      is_signed_var: false
+      len: 2
+      name: SR_BreakLight
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 26
+      is_signed_var: false
+      len: 2
+      name: SR_TurnRight
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 24
+      is_signed_var: false
+      len: 2
+      name: SR_TurnLeft
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 22
+      is_signed_var: false
+      len: 2
+      name: SR_ReversingLight
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 20
+      is_signed_var: false
+      len: 2
+      name: SR_Lowbeam
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 18
+      is_signed_var: false
+      len: 2
+      name: SR_Fdoor
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 16
+      is_signed_var: false
+      len: 2
+      name: SR_Gear_Status
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 12
+      is_signed_var: false
+      len: 4
+      name: SR_VehicleMoveing_Status
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 8
+      is_signed_var: false
+      len: 4
+      name: SR_Drive_Status
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 4
+      is_signed_var: false
+      len: 4
+      name: SR_InertialNavigation_Status
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 0
+      is_signed_var: false
+      len: 4
+      name: SR_RTK_Status
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+  98ff87ab:
+    id: 98ff87ab
+    name: breaksystem_feedback_98ff87ab
+    protocol_type: report
+    sender: VCU
+    vars:
+    - bit: 16
+      is_signed_var: false
+      len: 8
+      name: BRK_FB_SystemDefault
+      offset: 0.0
+      order: intel
+      physical_range: '[0|25.5]'
+      physical_unit: ''
+      precision: 0.1
+      type: double
+    - bit: 48
+      is_signed_var: false
+      len: 8
+      name: EPB_FB_Main_BrkPressure
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 0.1
+      type: double
+    - bit: 40
+      is_signed_var: false
+      len: 8
+      name: EPB_FB_Right_BrkPressure_Setvaul
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 0.1
+      type: double
+    - bit: 32
+      is_signed_var: false
+      len: 8
+      name: EPB_FB_Left_BrkPressure_Setvaule
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 0.1
+      type: double
+    - bit: 31
+      is_signed_var: false
+      len: 1
+      name: BRK_FB_EPB_Feedback
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 30
+      is_signed_var: false
+      len: 1
+      name: BEK_FB_Break_Enable
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 29
+      is_signed_var: false
+      len: 1
+      name: BRK_FB_OverHot_Warning
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 8
+      is_signed_var: true
+      len: 8
+      name: BRK_FB_Right_BreakPressure
+      offset: 0.0
+      order: intel
+      physical_range: '[-12.8|12.7]'
+      physical_unit: ''
+      precision: 0.1
+      type: double
+    - bit: 0
+      is_signed_var: false
+      len: 8
+      name: BRK_FB_Left_BreakPressure
+      offset: 0.0
+      order: intel
+      physical_range: '[0|25.5]'
+      physical_unit: ''
+      precision: 0.1
+      type: double
+  98ff8ca9:
+    id: 98ff8ca9
+    name: controller_parking_98ff8ca9
+    protocol_type: control
+    sender: ACU
+    vars:
+    - bit: 4
+      is_signed_var: false
+      len: 4
+      name: CP_EPB_Enable
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 0
+      is_signed_var: false
+      len: 4
+      name: CP_Park_ACTIVE
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+  98ff8dac:
+    id: 98ff8dac
+    name: parkingmode_feedback_98ff8dac
+    protocol_type: report
+    sender: VCU
+    vars:
+    - bit: 56
+      is_signed_var: false
+      len: 8
+      name: PMF_Default_Code
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 4
+      is_signed_var: false
+      len: 4
+      name: PMF_Current_Status
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 0
+      is_signed_var: false
+      len: 4
+      name: PMF_EPB_OnOff
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+  98ff9197:
+    id: 98ff9197
+    name: brake_nboost_ctrl_98ff9197
+    protocol_type: control
+    sender: ACU
+    vars:
+    - bit: 16
+      is_signed_var: false
+      len: 16
+      name: AEB_BrkPelPosDes
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 0.01
+      type: double
+  98ffea97:
+    id: 98ffea97
+    name: vcu_basic_message_98ffea97
+    protocol_type: report
+    sender: VCU
+    vars:
+    - bit: 62
+      is_signed_var: false
+      len: 1
+      name: VCU_Basic_Onebit
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 61
+      is_signed_var: false
+      len: 1
+      name: VCU_Basic_HP_Halt
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 59
+      is_signed_var: true
+      len: 2
+      name: VCU_Basic_GeatDefault_Code
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 56
+      is_signed_var: false
+      len: 3
+      name: VCU_Basic_SysDefault_Level
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 48
+      is_signed_var: true
+      len: 8
+      name: VCU_Basic_MotoController_Temp
+      offset: -40.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 40
+      is_signed_var: true
+      len: 8
+      name: VCU_Basic_Motor_Tempreture
+      offset: -40.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 37
+      is_signed_var: false
+      len: 3
+      name: VCU_Basic_Charge_Status
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 34
+      is_signed_var: false
+      len: 3
+      name: VCU_Basic_Real_HighVoltage_Sta
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 32
+      enum:
+        0: VCU_BASIC_REAL_GEAR_INVALID
+        1: VCU_BASIC_REAL_GEAR_R
+        2: VCU_BASIC_REAL_GEAR_N
+        3: VCU_BASIC_REAL_GEAR_D
+      is_signed_var: false
+      len: 2
+      name: VCU_Basic_Real_Gear
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 0
+      is_signed_var: false
+      len: 16
+      name: VCU_Basic_Motor_Speed
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: rpm
+      precision: 0.5
+      type: double
+  98ffeb97:
+    id: 98ffeb97
+    name: soc_98ffeb97
+    protocol_type: report
+    sender: VCU
+    vars:
+    - bit: 32
+      is_signed_var: false
+      len: 8
+      name: SOC
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 0.4
+      type: double
+  c0000000:
+    id: c0000000
+    name: vector__independent_sig_msg_c0000000
+    protocol_type: report
+    sender: Vector__XXX
+    vars:
+    - bit: 0
+      is_signed_var: false
+      len: 8
+      name: Steering_RESVERD3
+      offset: 0.0
+      order: intel
+      physical_range: '[0|255]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 0
+      is_signed_var: false
+      len: 8
+      name: Steering_RESVERD1
+      offset: 0.0
+      order: intel
+      physical_range: '[0|255]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 0
+      is_signed_var: false
+      len: 8
+      name: Steering_RESVERD2
+      offset: 0.0
+      order: intel
+      physical_range: '[0|255]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 0
+      is_signed_var: false
+      len: 8
+      name: New_Signal_154
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 0
+      is_signed_var: false
+      len: 8
+      name: New_Signal_153
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 0
+      is_signed_var: false
+      len: 2
+      name: BUSV_Aircondition_Status
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 0
+      is_signed_var: false
+      len: 2
+      name: BUSV_SmallLamp_Status
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 0
+      is_signed_var: false
+      len: 16
+      name: BUS_Vehicle_Speed_RED_Byte45
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 0
+      is_signed_var: false
+      len: 32
+      name: BUS_Vehicle_Speed_RED_Byte0123
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 0
+      is_signed_var: false
+      len: 16
+      name: BUS_Battery_RESVERED_Byte67
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 0
+      is_signed_var: false
+      len: 32
+      name: BUS_Battery_RESVERED_Byte2345
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 0
+      is_signed_var: false
+      len: 16
+      name: BUS_RESVERED_Byte67
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 0
+      is_signed_var: false
+      len: 16
+      name: BUS_RESVERED_Byte45
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 0
+      is_signed_var: false
+      len: 2
+      name: BUS_RESVERED1
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 0
+      is_signed_var: false
+      len: 8
+      name: VCU_Brk_RESERVED_Byte7
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 0
+      is_signed_var: false
+      len: 16
+      name: VCU_Brk_RESERVED_Byte56
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 0
+      is_signed_var: false
+      len: 16
+      name: VCU_Brk_RESERVED_Byte34
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 0
+      is_signed_var: false
+      len: 6
+      name: VCU_Brk_RESERVED1
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 0
+      is_signed_var: false
+      len: 1
+      name: VCU_Basic_RESVERED
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 0
+      is_signed_var: false
+      len: 16
+      name: VCU_Basic_RESVERED_Byte23
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 0
+      is_signed_var: false
+      len: 6
+      name: VCU_Drive_RESERVED1
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 0
+      is_signed_var: false
+      len: 16
+      name: PMF_RESVERED_Byte56
+      offset: 0.0
+      order: intel
+      physical_range: '[0|65535]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 0
+      is_signed_var: false
+      len: 16
+      name: PMF_RESVERED_Byte34
+      offset: 0.0
+      order: intel
+      physical_range: '[0|65535]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 0
+      is_signed_var: false
+      len: 16
+      name: PMF_RESVERED_Byte12
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 0
+      is_signed_var: false
+      len: 8
+      name: EPS_RESVERED0
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 0
+      is_signed_var: false
+      len: 4
+      name: EPS_REVERED
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 0
+      is_signed_var: false
+      len: 8
+      name: SP_Defaulr_Code
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 0
+      is_signed_var: false
+      len: 8
+      name: SP_REVERED_Byte6
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 0
+      is_signed_var: false
+      len: 16
+      name: SP_REVERED_Byte45
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 0
+      is_signed_var: false
+      len: 16
+      name: SP_REVERED_Byte23
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 0
+      is_signed_var: false
+      len: 2
+      name: SP_RTK_Power_FB
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 0
+      is_signed_var: false
+      len: 2
+      name: SP_FullView_Power_FB
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 0
+      is_signed_var: false
+      len: 2
+      name: SP_Mobieye_Power_FB
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 0
+      is_signed_var: false
+      len: 2
+      name: SP_MmRadar_Power_FB
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 0
+      is_signed_var: false
+      len: 2
+      name: SP_UltrasonicRadar_Power_FB
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 0
+      is_signed_var: false
+      len: 2
+      name: SP_BSDRadar_Power_FB
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 0
+      is_signed_var: false
+      len: 2
+      name: SP_SingleLindLiDar_Power_FB
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 0
+      is_signed_var: false
+      len: 2
+      name: SP_16LiDar_Power_Feedback
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 0
+      is_signed_var: false
+      len: 8
+      name: SR_RESVERD_Byte7
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 0
+      is_signed_var: false
+      len: 8
+      name: Pedal_RESVERD3
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 0
+      is_signed_var: false
+      len: 6
+      name: Pedal_RESVERD1
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int

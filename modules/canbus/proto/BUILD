@@ -237,6 +237,24 @@ py_proto_library(
         ":neolix_edu_proto",
     ],
 )
+cc_proto_library(
+    name = "kinglong_cc_proto",
+    deps = [
+        ":kinglong_proto",
+    ],
+)
+
+proto_library(
+    name = "kinglong_proto",
+    srcs = ["kinglong.proto"],
+)
+
+py_proto_library(
+    name = "kinglong_py_pb2",
+    deps = [
+        ":kinglong_proto",
+    ],
+)
 
 cc_proto_library(
     name = "chassis_detail_cc_proto",
@@ -255,6 +273,7 @@ proto_library(
         ":ge3_proto",
         ":lexus_proto",
         ":neolix_edu_proto",
+        ":kinglong_proto",
         ":transit_proto",
         ":wey_proto",
         ":zhongyun_proto",
@@ -272,6 +291,7 @@ py_proto_library(
         ":ge3_py_pb2",
         ":lexus_py_pb2",
         ":neolix_edu_py_pb2",
+        ":kinglong_py_pb2",
         ":transit_py_pb2",
         ":wey_py_pb2",
         ":zhongyun_py_pb2",

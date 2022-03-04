@@ -1,0 +1,441 @@
+syntax = "proto2";
+
+package apollo.canbus;
+
+message Bus_vehicle_speed_msg_8cfe6c17 {
+// Report Message
+  // [Km/h] [0|0]
+  optional double bus_vehicle_speed = 1;
+}
+
+message Bus_inteligent_control_status_98fa0117 {
+// Report Message
+  // [] [0|0]
+  optional int32 bus_innerdoor_daysensor = 1;
+  // [] [0|0]
+  optional int32 bus_outdoor_daysensor = 2;
+  // [] [0|0]
+  optional int32 bus_outdoor_key = 3;
+  // [] [0|0]
+  optional int32 bus_innerdoor_key = 4;
+  // [] [0|0]
+  optional int32 bus_breaking_key = 5;
+  // [] [0|0]
+  optional int32 bus_reversing_key = 6;
+  // [] [0|0]
+  optional int32 bus_drive_key = 7;
+  // [] [0|0]
+  optional int32 bus_joystick_right_key = 8;
+  // [] [0|0]
+  optional int32 bus_joystick_left_key = 9;
+  // [] [0|0]
+  optional int32 bus_joystick_behind_key = 10;
+  // [] [0|0]
+  optional int32 bus_joystick_front_key = 11;
+  // [] [0|0]
+  optional int32 bus_parking_request_sw = 12;
+  // [] [0|0]
+  optional int32 bus_enginestar_sw = 13;
+  // [] [0|0]
+  optional int32 bus_disable_drivekeyboard = 14;
+  // [] [0|0]
+  optional int32 bus_emergency_sw = 15;
+}
+
+message Bus_vehicle_status_98fa0517 {
+// Report Message
+  enum Busv_fdoor_statusType {
+    BUSV_FDOOR_STATUS_NO_ACTIVE = 0;
+    BUSV_FDOOR_STATUS_DOOR_CLOSE = 1;
+    BUSV_FDOOR_STATUS_DOOR_OPEN = 2;
+    BUSV_FDOOR_STATUS_OPENING_DOOR = 3;
+    BUSV_FDOOR_STATUS_CLOSING_DOOR = 4;
+  }
+  // [] [0|0]
+  optional int32 busv_emergencyhammer_worning = 1;
+  // [] [0|0]
+  optional int32 busv_break_wear = 2;
+  // [] [0|0]
+  optional int32 busv_body_notify = 3;
+  // [] [0|0]
+  optional int32 busv_turnleft_stauts = 4;
+  // [] [0|0]
+  optional int32 busv_turnright_status = 5;
+  // [] [0|0]
+  optional int32 busv_lowbeam_status = 6;
+  // [] [0|0]
+  optional int32 busv_horn_status = 7;
+  // [] [0|0]
+  optional int32 busv_park_status = 8;
+  // [] [0|0]
+  optional int32 busv_break_status = 9;
+  // [] [0|0]
+  optional Busv_fdoor_statusType busv_fdoor_status = 10;
+  // [] [0|0]
+  optional int32 busv_reversing_status = 11;
+  // [] [0|0]
+  optional int32 bus_vehicle_sta_id = 12;
+}
+
+message Bus_battery_meg_98fa1017 {
+// Report Message
+  // [] [0|0]
+  optional double bus_battery_voltage = 1;
+}
+
+message Wheelspeed_feedback_98fe6eab {
+// Report Message
+  // [] [0|0]
+  optional double ws_rearright_wheelspeed = 1;
+  // [] [0|0]
+  optional double ws_rearleft_wheelspeed = 2;
+  // [] [0|0]
+  optional double ws_frontright_wheelspeed = 3;
+  // [] [0|0]
+  optional double ws_frontleft_wheelspeed = 4;
+}
+
+message Bus_mileage_98fee017 {
+// Report Message
+  // [Km] [0|0]
+  optional double bus_mileage_long = 1;
+  // [Km] [0|0]
+  optional double bus_mileage_short = 2;
+}
+
+message Vcu_drive_feedback_98ff7097 {
+// Report Message
+  // [] [0|0]
+  optional int32 vcu_drive_life_signal = 1;
+  // [Km/h] [0|0]
+  optional int32 vcu_drive_vehicle_speed = 2;
+  // [Nm] [0|0]
+  optional int32 vcu_drive_real_torque = 3;
+  // [%] [0|0]
+  optional double vcu_drive_break_pedal_position = 4;
+  // [%] [0|0]
+  optional double vcu_drive_throttle_pedal_posi = 5;
+  // [] [0|0]
+  optional int32 vcu_drive_autodrive_confirm = 6;
+}
+
+message Controller_steering_cmd_98ff82a9 {
+// Control Message
+  enum Steering_ctrl_statusType {
+    STEERING_CTRL_STATUS_READY = 0;
+    STEERING_CTRL_STATUS_AUTO_DRIVE = 1;
+    STEERING_CTRL_STATUS_SPEED_CMD = 2;
+    STEERING_CTRL_STATUS_NULL = 3;
+    STEERING_CTRL_STATUS_MANUAL_CMD = 4;
+    STEERING_CTRL_STATUS_RESET_FROM_MAUNAL_CMD = 5;
+    STEERING_CTRL_STATUS_CLEAR_DEFAULT = 6;
+  }
+  // [] [0|0]
+  optional int32 steering_vcu_status = 1;
+  // [] [0|255]
+  optional int32 steering_heartbeat = 2;
+  // [] [0|540]
+  optional double steering_velocity = 3;
+  // [] [0|0]
+  optional Steering_ctrl_statusType steering_ctrl_status = 4;
+  // [degree] [-870|870]
+  optional double streering_angle = 5;
+}
+
+message Eps_feedback_98ff83aa {
+// Report Message
+  // [] [0|0]
+  optional int32 eps_vcu_status = 1;
+  // [] [0|0]
+  optional double eps_target_steering_velocity = 2;
+  // [] [-870|870]
+  optional double eps_real_angle = 3;
+  // [] [0|0]
+  optional double eps_targit_angle = 4;
+  // [Nm] [0|8.96]
+  optional double eps_wheel_torque = 5;
+}
+
+message Controller_pedal_cmd_98ff84a9 {
+// Control Message
+  enum Pedal_gearType {
+    PEDAL_GEAR_INVALID = 0;
+    PEDAL_GEAR_R = 1;
+    PEDAL_GEAR_N = 2;
+    PEDAL_GEAR_D = 3;
+  }
+  enum Pedal_ctrl_requestType {
+    PEDAL_CTRL_REQUEST_OFF = 0;
+    PEDAL_CTRL_REQUEST_ON = 1;
+    PEDAL_CTRL_REQUEST_DEFAULT = 2;
+    PEDAL_CTRL_REQUEST_INVALIT = 3;
+  }
+  // [] [0|0]
+  optional int32 pedal_check = 1;
+  // [] [0|0]
+  optional int32 pedal_heartbeat = 2;
+  // [%] [0|100]
+  optional double pedal_break = 3;
+  // [] [0|0]
+  optional int32 brake_select = 4;
+  // [] [0|0]
+  optional Pedal_gearType pedal_gear = 5;
+  // [%] [0|100]
+  optional double pedal_throttle = 6;
+  // [] [0|0]
+  optional Pedal_ctrl_requestType pedal_ctrl_request = 7;
+}
+
+message Vcu_breaksys_cmd_98ff85a7 {
+// Report Message
+  // [] [0|0]
+  optional bool vcu_brk_autoparking_request = 1;
+  // [] [0|0]
+  optional bool vcu_brk_initivate_enable = 2;
+  // [MPa] [0|25.5]
+  optional double vcu_brk_right_pressure = 3;
+  // [MPa] [0|25.5]
+  optional double vcu_brk_left_pressure = 4;
+}
+
+message Controller_status_requset_98ff86a9 {
+// Control Message
+  // [] [0|0]
+  optional int32 sr_rtk_power = 1;
+  // [] [0|0]
+  optional int32 sr_fullview_power = 2;
+  // [] [0|0]
+  optional int32 sr_mobieye_power = 3;
+  // [] [0|0]
+  optional int32 sr_mmradar_power = 4;
+  // [] [0|0]
+  optional int32 sr_ultrasonicradar_power = 5;
+  // [] [0|0]
+  optional int32 sr_bsdradar_power = 6;
+  // [] [0|0]
+  optional int32 sr_singlelindlidar_power = 7;
+  // [] [0|0]
+  optional int32 sr_16lidar_power = 8;
+  // [] [0|0]
+  optional int32 sr_reeverd1 = 9;
+  // [] [0|0]
+  optional int32 sr_horn = 10;
+  // [] [0|0]
+  optional int32 sr_fluorescentlamps = 11;
+  // [] [0|0]
+  optional int32 sr_rooflight = 12;
+  // [] [0|0]
+  optional int32 sr_minillight = 13;
+  // [] [0|0]
+  optional int32 sr_breaklight = 14;
+  // [] [0|0]
+  optional int32 sr_turnright = 15;
+  // [] [0|0]
+  optional int32 sr_turnleft = 16;
+  // [] [0|0]
+  optional int32 sr_reversinglight = 17;
+  // [] [0|0]
+  optional int32 sr_lowbeam = 18;
+  // [] [0|0]
+  optional int32 sr_fdoor = 19;
+  // [] [0|0]
+  optional int32 sr_gear_status = 20;
+  // [] [0|0]
+  optional int32 sr_vehiclemoveing_status = 21;
+  // [] [0|0]
+  optional int32 sr_drive_status = 22;
+  // [] [0|0]
+  optional int32 sr_inertialnavigation_status = 23;
+  // [] [0|0]
+  optional int32 sr_rtk_status = 24;
+}
+
+message Breaksystem_feedback_98ff87ab {
+// Report Message
+  // [] [0|25.5]
+  optional double brk_fb_systemdefault = 1;
+  // [] [0|0]
+  optional double epb_fb_main_brkpressure = 2;
+  // [] [0|0]
+  optional double epb_fb_right_brkpressure_setvaul = 3;
+  // [] [0|0]
+  optional double epb_fb_left_brkpressure_setvaule = 4;
+  // [] [0|0]
+  optional bool brk_fb_epb_feedback = 5;
+  // [] [0|0]
+  optional bool bek_fb_break_enable = 6;
+  // [] [0|0]
+  optional bool brk_fb_overhot_warning = 7;
+  // [] [-12.8|12.7]
+  optional double brk_fb_right_breakpressure = 8;
+  // [] [0|25.5]
+  optional double brk_fb_left_breakpressure = 9;
+}
+
+message Controller_parking_98ff8ca9 {
+// Control Message
+  // [] [0|0]
+  optional int32 cp_epb_enable = 1;
+  // [] [0|0]
+  optional int32 cp_park_active = 2;
+}
+
+message Parkingmode_feedback_98ff8dac {
+// Report Message
+  // [] [0|0]
+  optional int32 pmf_default_code = 1;
+  // [] [0|0]
+  optional int32 pmf_current_status = 2;
+  // [] [0|0]
+  optional int32 pmf_epb_onoff = 3;
+}
+
+message Brake_nboost_ctrl_98ff9197 {
+// Control Message
+  // [] [0|0]
+  optional double aeb_brkpelposdes = 1;
+}
+
+message Vcu_basic_message_98ffea97 {
+// Report Message
+  enum Vcu_basic_real_gearType {
+    VCU_BASIC_REAL_GEAR_INVALID = 0;
+    VCU_BASIC_REAL_GEAR_R = 1;
+    VCU_BASIC_REAL_GEAR_N = 2;
+    VCU_BASIC_REAL_GEAR_D = 3;
+  }
+  // [] [0|0]
+  optional bool vcu_basic_onebit = 1;
+  // [] [0|0]
+  optional bool vcu_basic_hp_halt = 2;
+  // [] [0|0]
+  optional int32 vcu_basic_geatdefault_code = 3;
+  // [] [0|0]
+  optional int32 vcu_basic_sysdefault_level = 4;
+  // [] [0|0]
+  optional int32 vcu_basic_motocontroller_temp = 5;
+  // [] [0|0]
+  optional int32 vcu_basic_motor_tempreture = 6;
+  // [] [0|0]
+  optional int32 vcu_basic_charge_status = 7;
+  // [] [0|0]
+  optional int32 vcu_basic_real_highvoltage_sta = 8;
+  // [] [0|0]
+  optional Vcu_basic_real_gearType vcu_basic_real_gear = 9;
+  // [rpm] [0|0]
+  optional double vcu_basic_motor_speed = 10;
+}
+
+message Soc_98ffeb97 {
+// Report Message
+  // [] [0|0]
+  optional double soc = 1;
+}
+
+message Vector__independent_sig_msg_c0000000 {
+// Report Message
+  // [] [0|255]
+  optional int32 steering_resverd3 = 1;
+  // [] [0|255]
+  optional int32 steering_resverd1 = 2;
+  // [] [0|255]
+  optional int32 steering_resverd2 = 3;
+  // [] [0|0]
+  optional int32 new_signal_154 = 4;
+  // [] [0|0]
+  optional int32 new_signal_153 = 5;
+  // [] [0|0]
+  optional int32 busv_aircondition_status = 6;
+  // [] [0|0]
+  optional int32 busv_smalllamp_status = 7;
+  // [] [0|0]
+  optional int32 bus_vehicle_speed_red_byte45 = 8;
+  // [] [0|0]
+  optional int32 bus_vehicle_speed_red_byte0123 = 9;
+  // [] [0|0]
+  optional int32 bus_battery_resvered_byte67 = 10;
+  // [] [0|0]
+  optional int32 bus_battery_resvered_byte2345 = 11;
+  // [] [0|0]
+  optional int32 bus_resvered_byte67 = 12;
+  // [] [0|0]
+  optional int32 bus_resvered_byte45 = 13;
+  // [] [0|0]
+  optional int32 bus_resvered1 = 14;
+  // [] [0|0]
+  optional int32 vcu_brk_reserved_byte7 = 15;
+  // [] [0|0]
+  optional int32 vcu_brk_reserved_byte56 = 16;
+  // [] [0|0]
+  optional int32 vcu_brk_reserved_byte34 = 17;
+  // [] [0|0]
+  optional int32 vcu_brk_reserved1 = 18;
+  // [] [0|0]
+  optional bool vcu_basic_resvered = 19;
+  // [] [0|0]
+  optional int32 vcu_basic_resvered_byte23 = 20;
+  // [] [0|0]
+  optional int32 vcu_drive_reserved1 = 21;
+  // [] [0|65535]
+  optional int32 pmf_resvered_byte56 = 22;
+  // [] [0|65535]
+  optional int32 pmf_resvered_byte34 = 23;
+  // [] [0|0]
+  optional int32 pmf_resvered_byte12 = 24;
+  // [] [0|0]
+  optional int32 eps_resvered0 = 25;
+  // [] [0|0]
+  optional int32 eps_revered = 26;
+  // [] [0|0]
+  optional int32 sp_defaulr_code = 27;
+  // [] [0|0]
+  optional int32 sp_revered_byte6 = 28;
+  // [] [0|0]
+  optional int32 sp_revered_byte45 = 29;
+  // [] [0|0]
+  optional int32 sp_revered_byte23 = 30;
+  // [] [0|0]
+  optional int32 sp_rtk_power_fb = 31;
+  // [] [0|0]
+  optional int32 sp_fullview_power_fb = 32;
+  // [] [0|0]
+  optional int32 sp_mobieye_power_fb = 33;
+  // [] [0|0]
+  optional int32 sp_mmradar_power_fb = 34;
+  // [] [0|0]
+  optional int32 sp_ultrasonicradar_power_fb = 35;
+  // [] [0|0]
+  optional int32 sp_bsdradar_power_fb = 36;
+  // [] [0|0]
+  optional int32 sp_singlelindlidar_power_fb = 37;
+  // [] [0|0]
+  optional int32 sp_16lidar_power_feedback = 38;
+  // [] [0|0]
+  optional int32 sr_resverd_byte7 = 39;
+  // [] [0|0]
+  optional int32 pedal_resverd3 = 40;
+  // [] [0|0]
+  optional int32 pedal_resverd1 = 41;
+}
+
+message Kinglong {
+  optional Bus_vehicle_speed_msg_8cfe6c17 bus_vehicle_speed_msg_8cfe6c17 = 1; // report message
+  optional Bus_inteligent_control_status_98fa0117 bus_inteligent_control_status_98fa0117 = 2; // report message
+  optional Bus_vehicle_status_98fa0517 bus_vehicle_status_98fa0517 = 3; // report message
+  optional Bus_battery_meg_98fa1017 bus_battery_meg_98fa1017 = 4; // report message
+  optional Wheelspeed_feedback_98fe6eab wheelspeed_feedback_98fe6eab = 5; // report message
+  optional Bus_mileage_98fee017 bus_mileage_98fee017 = 6; // report message
+  optional Vcu_drive_feedback_98ff7097 vcu_drive_feedback_98ff7097 = 7; // report message
+  optional Controller_steering_cmd_98ff82a9 controller_steering_cmd_98ff82a9 = 8; // control message
+  optional Eps_feedback_98ff83aa eps_feedback_98ff83aa = 9; // report message
+  optional Controller_pedal_cmd_98ff84a9 controller_pedal_cmd_98ff84a9 = 10; // control message
+  optional Vcu_breaksys_cmd_98ff85a7 vcu_breaksys_cmd_98ff85a7 = 11; // report message
+  optional Controller_status_requset_98ff86a9 controller_status_requset_98ff86a9 = 12; // control message
+  optional Breaksystem_feedback_98ff87ab breaksystem_feedback_98ff87ab = 13; // report message
+  optional Controller_parking_98ff8ca9 controller_parking_98ff8ca9 = 14; // control message
+  optional Parkingmode_feedback_98ff8dac parkingmode_feedback_98ff8dac = 15; // report message
+  optional Brake_nboost_ctrl_98ff9197 brake_nboost_ctrl_98ff9197 = 16; // control message
+  optional Vcu_basic_message_98ffea97 vcu_basic_message_98ffea97 = 17; // report message
+  optional Soc_98ffeb97 soc_98ffeb97 = 18; // report message
+  optional Vector__independent_sig_msg_c0000000 vector__independent_sig_msg_c0000000 = 19; // report message
+}
