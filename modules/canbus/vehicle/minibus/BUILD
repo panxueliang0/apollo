@@ -5,7 +5,7 @@ package(default_visibility = ["//visibility:public"])
 cc_library(
     name = "minibus_vehicle_factory",
     srcs = [
-        "libminibus_vehicle_factory.so",
+        "minibus_vehicle_factory.cc",
     ],
     hdrs = [
         "minibus_vehicle_factory.h",
@@ -20,7 +20,7 @@ cc_library(
 cc_library(
     name = "minibus_message_manager",
     srcs = [
-        "libminibus_message_manager.so",
+        "minibus_message_manager.cc",
     ],
     hdrs = [
         "minibus_message_manager.h",
@@ -36,7 +36,7 @@ cc_library(
 cc_library(
     name = "minibus_controller",
     srcs = [
-        "libminibus_controller.so",
+        "minibus_controller.cc",
     ],
     hdrs = [
         "minibus_controller.h",

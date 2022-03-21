@@ -5,7 +5,7 @@ package(default_visibility = ["//visibility:public"])
 cc_library(
     name = "canbus_minibus_protocol",
     srcs = glob([
-        "libcanbus_minibus_protocol.so",
+        "*.cc",
     ]),
     hdrs = glob([
         "*.h",
