@@ -15,11 +15,14 @@
  *****************************************************************************/
 
 #include "modules/canbus/vehicle/vehicle_factory.h"
+
 #include "modules/canbus/proto/vehicle_parameter.pb.h"
+
 #include "modules/canbus/vehicle/ch/ch_vehicle_factory.h"
 #include "modules/canbus/vehicle/devkit/devkit_vehicle_factory.h"
 #include "modules/canbus/vehicle/ge3/ge3_vehicle_factory.h"
 #include "modules/canbus/vehicle/gem/gem_vehicle_factory.h"
+#include "modules/canbus/vehicle/hunter2/hunter2_vehicle_factory.h"
 #include "modules/canbus/vehicle/lexus/lexus_vehicle_factory.h"
 #include "modules/canbus/vehicle/lincoln/lincoln_vehicle_factory.h"
 #include "modules/canbus/vehicle/minibus/minibus_vehicle_factory.h"
@@ -27,7 +30,6 @@
 #include "modules/canbus/vehicle/transit/transit_vehicle_factory.h"
 #include "modules/canbus/vehicle/wey/wey_vehicle_factory.h"
 #include "modules/canbus/vehicle/zhongyun/zhongyun_vehicle_factory.h"
-
 namespace apollo {
 namespace canbus {
 
@@ -53,8 +55,8 @@ void VehicleFactory::RegisterVehicleFactory() {
   Register(apollo::common::ZHONGYUN, []() -> AbstractVehicleFactory * {
     return new ZhongyunVehicleFactory();
   });
-  Register(apollo::common::CH, []() -> AbstractVehicleFactory * {
-    return new ChVehicleFactory();
+  Register(apollo::common::CH, []() -> AbstractVehicleFactory * { 
+    return new ChVehicleFactory(); 
   });
   Register(apollo::common::DKIT, []() -> AbstractVehicleFactory * {
     return new DevkitVehicleFactory();
@@ -65,21 +67,23 @@ void VehicleFactory::RegisterVehicleFactory() {
   Register(apollo::common::MINIBUS, []() -> AbstractVehicleFactory * {
     return new MinibusVehicleFactory();
   });
+  Register(apollo::common::HUNTER2, []() -> AbstractVehicleFactory * {
+    return new Hunter2VehicleFactory();
+  });
 }
-
-std::unique_ptr<AbstractVehicleFactory> VehicleFactory::CreateVehicle(
-    const VehicleParameter &vehicle_parameter) {
-  auto abstract_factory = CreateObject(vehicle_parameter.brand());
-  if (!abstract_factory) {
-    AERROR << "failed to create vehicle factory with "
-           << vehicle_parameter.DebugString();
-  } else {
-    abstract_factory->SetVehicleParameter(vehicle_parameter);
-    AINFO << "successfully created vehicle factory with "
-          << vehicle_parameter.DebugString();
+  std::unique_ptr<AbstractVehicleFactory> VehicleFactory::CreateVehicle(
+      const VehicleParameter &vehicle_parameter) {
+    auto abstract_factory = CreateObject(vehicle_parameter.brand());
+    if (!abstract_factory) {
+      AERROR << "failed to create vehicle factory with "
+             << vehicle_parameter.DebugString();
+    } else {
+      abstract_factory->SetVehicleParameter(vehicle_parameter);
+      AINFO << "successfully created vehicle factory with "
+            << vehicle_parameter.DebugString();
+    }
+    return abstract_factory;
   }
-  return abstract_factory;
-}
 
 }  // namespace canbus
 }  // namespace apollo
